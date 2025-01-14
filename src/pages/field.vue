@@ -19,7 +19,7 @@ definePage({
 const { t } = useI18n()
 const { current } = useLocale()
 
-const headers = reactive(['zoteroItemType', 'csl', 'ui'].map(key => ({
+const headers = reactive(['zoteroItemType', 'cslVariable', 'ui'].map(key => ({
   title: computed(() => t(`header.${key}`)),
   key: key,
   value: key
@@ -44,7 +44,7 @@ for (const field of sortedFields) {
   for (const type of itemTypes) {
     rows.push({
       zoteroItemType: type,
-      csl: Object.keys(data.csl.types).find(key => data.csl.types[key].includes(type)),
+      cslVariable: Object.keys(data.csl.types).find(key => data.csl.types[key].includes(type)),
       ui: computed(() => toUILabel(current.value, type, 'itemType'))
     })
   }

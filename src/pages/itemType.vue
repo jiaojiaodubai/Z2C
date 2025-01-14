@@ -19,7 +19,7 @@ definePage({
 const { t } = useI18n()
 const { current } = useLocale()
 
-const headers = reactive(['zoteroTerm', 'csl', 'ui', 'type'].map(key => ({
+const headers = reactive(['zoteroTerm', 'cslTerm', 'ui', 'type'].map(key => ({
   title: computed(() => t(`header.${key}`)),
   key: key,
   value: key
@@ -29,7 +29,7 @@ const entries = reactive([])
 for (const type of data.itemTypes) {
   const itemType = {
     zoteroTerm: type.itemType,
-    csl: Object.keys(data.csl.types).find(key => data.csl.types[key].includes(type.itemType)),
+    cslTerm: Object.keys(data.csl.types).find(key => data.csl.types[key].includes(type.itemType)),
     type: 'itemType',
     ui: computed(() => toUILabel(current.value, type.itemType, 'itemType'))
   }
@@ -41,14 +41,14 @@ for (const type of data.itemTypes) {
     const dateValue = Object.keys(dateFields).find(key => dateFields[key] === zField )
     return {
       zoteroTerm: zField,
-      csl: textValue || dateValue,
+      cslTerm: textValue || dateValue,
       type: 'field',
       ui: computed(() => toUILabel(current.value, zField, 'field'))
     }
   })
   const creatorTypes = type.creatorTypes.map(obj => ({
     zoteroTerm: obj.creatorType,
-    csl: data.csl.names[obj.creatorType],
+    cslTerm: data.csl.names[obj.creatorType],
     type: 'creatorType',
     ui: computed(() => toUILabel(current.value, obj.creatorType, 'creatorType'))
   }))

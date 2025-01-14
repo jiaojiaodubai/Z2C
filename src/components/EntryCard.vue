@@ -47,7 +47,13 @@ const props = defineProps({
       >
         <template #item="{ item }">
           <tr>
-            <td><WordBox>{{ item[props.headers[0].value] }}</WordBox></td>
+            <td>
+              <WordBox
+                :text="item[props.headers[0].value]"
+                :column-key="props.headers[0].value"
+                :type="item.type"
+              />
+            </td>
             <td
               v-for="(header, index) in props.headers.slice(1)"
               :key="index"
@@ -59,12 +65,17 @@ const props = defineProps({
                 <WordBox
                   v-for="(subItem, subIndex) in item[header.value]"
                   :key="subIndex"
-                >
-                  {{ subItem }}
-                </WordBox>
+                  :text="subItem"
+                  :column-key="header.value"
+                  :type="item.type"
+                />
               </div>
               <div v-else>
-                <WordBox>{{ item[header.value] }}</WordBox>
+                <WordBox
+                  :text="item[header.value]"
+                  :column-key="header.value"
+                  :type="item.type"
+                />
               </div>
             </td>
           </tr>

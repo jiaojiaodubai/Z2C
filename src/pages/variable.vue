@@ -17,7 +17,7 @@ const { t } = useI18n()
 const { current } = useLocale()
 
 
-const headers = reactive(['csl', 'zoteroField', 'ui'].map(key => ({
+const headers = reactive(['cslVariable', 'zoteroField', 'ui'].map(key => ({
   title: computed(() => t(`header.${key}`)),
   key: key,
   value: key
@@ -33,7 +33,7 @@ function genEntry(name, target, labelType='field') {
     rows: constant.variable[name].map((variable) => {
       const zField = target[variable]
       return {
-        csl: variable,
+        cslVariable: variable,
         zoteroField: zField,
         ui: Array.isArray(zField)
           ? zField.map(z => toUILabel(current.value, z, labelType))

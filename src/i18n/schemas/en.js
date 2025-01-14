@@ -28,7 +28,8 @@ export default {
     zoteroItemType: 'Zotero Item Type',
     zoteroField: 'Zotero Field',
     zoteroTerm: 'Zotero Term',
-    csl: 'CSL Type/Variable',
+    cslVariable: 'CSL Variable',
+    cslTerm: 'CSL Term',
     ui: 'UI Label',
     type: 'Type'
   },

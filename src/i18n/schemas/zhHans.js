@@ -28,7 +28,8 @@ export default {
     zoteroItemType: 'Zotero 条目类型',
     zoteroField: 'Zotero 字段',
     zoteroTerm: 'Zotero 术语',
-    csl: 'CSL 类型/变量',
+    cslVariable: 'CSL 变量',
+    cslTerm: 'CSL 类型/变量',
     ui: 'UI 标签',
     type: '类型'
   },
