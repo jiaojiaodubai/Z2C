@@ -3,7 +3,7 @@
   <div>
     <v-empty-state
       :title="$t('redrecting', { view: $t(`view.${selectedView}`) })"
-      image="src/assets/favicon.svg"
+      :image="favicon"
     >
       <template #headline>
         <RichTextTitle class="mt-3" />
@@ -21,6 +21,7 @@
 import { ref, onMounted, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import RichTextTitle from '@/components/RichTextTitle.vue'
+import favicon from '@/assets/favicon.svg'
 
 const selectedView = localStorage.getItem('selectedView') || 'itemType'
 const router = useRouter()
