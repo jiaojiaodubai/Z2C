@@ -1,5 +1,7 @@
 <script setup>
-import { watch } from 'vue'
+import { onMounted, watch } from 'vue'
+import { useRoute } from 'vue-router'
+import { scrollToHash } from '@/composables/window'
 import EntryCard from './EntryCard.vue'
 import { useHeadingsStore } from '@/stores/headings'
 
@@ -22,6 +24,14 @@ const store = useHeadingsStore()
 watch(() => props.entries, () => {
   store.setHeadings(props.entries.map(entry => entry.heading))
 }, { immediate: true })
+
+const route = useRoute()
+onMounted(() => {
+  const hash = route.hash.substring(1)
+  if (hash) {
+    scrollToHash(hash)
+  }
+})
 </script>
 
 <template>
