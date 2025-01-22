@@ -7,9 +7,8 @@ interface Props {
   }
 }
 
-const { text='', to } = defineProps<Props>()
+const { text, to } = defineProps<Props>()
 
-const localeRoute = useLocaleRoute()
 const wordBoxRef = ref<HTMLSpanElement | null>(null)
 const snackbar = ref(false)
 
@@ -33,12 +32,10 @@ const copyToClipboard = () => {
     >
       {{ text }}
     </span>
-    <!-- https://i18n.nuxtjs.org/docs/components/nuxt-link-locale -->
     <nuxt-link-locale
       v-if="to"
-      :to="{ name: localeRoute(to.name)?.name as string, hash: `#${to.hash}` }"
+      :to="{ name: to.name, hash: `#${to.hash}` }"
       class="word-box-btn ml-1"
-      target="_blank"
     >
       <v-icon icon="mdi-information-variant-circle-outline" size="em"/>
     </nuxt-link-locale>

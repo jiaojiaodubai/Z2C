@@ -5,6 +5,7 @@ import ViewSwitcher from './components/ViewSwitcher.vue'
 import LocaleSwitcher from './components/LocaleSwitcher.vue'
 import ThemeSwitcher from './components/ThemeSwitcher.vue'
 import TocSwitcher from './components/TocSwitcher.vue'
+import AppFooter from './components/AppFooter.vue'
 
 const { t } = useI18n()
 // https://nuxt.com/docs/getting-started/seo-meta#dynamic-title
@@ -16,15 +17,15 @@ useHead({
   }
 })
 
-const route = useRoute()
-
 const enableToc = ref(false)
 const showToc = ref(false)
 
+const route = useRoute()
 watch(() => route.name, () => {
-  console.log(route.name)
-  enableToc.value = route.path !== '/'
-  showToc.value = route.path !== '/'
+  const getRouteBaseName = useRouteBaseName()
+  const baseRouteName = getRouteBaseName(route)
+  enableToc.value = baseRouteName !== '[...redirect]'
+  showToc.value = baseRouteName !== '[...redirect]'
 })
 </script>
 
@@ -50,7 +51,7 @@ watch(() => route.name, () => {
         <NuxtPage />
       </NuxtLayout>
     </v-main>
-    <!-- <AppFooter /> -->
+    <AppFooter />
     <Toc
       v-if="enableToc"
       v-model="showToc"

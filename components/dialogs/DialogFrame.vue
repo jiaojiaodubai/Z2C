@@ -22,7 +22,7 @@ function onConfirm() {
         class="bg-surface-light"
         style="padding-top: 10px;padding-bottom: 10px;"
       >
-        {{ $t(`dialogs.${($route.name as string).substring(1)}.title`) }}
+        {{ $t(`dialogs.${$getRouteBaseName($route)}.title`) }}
       </v-card-title>
       <div class="mx-1 mt-2">
         <slot />

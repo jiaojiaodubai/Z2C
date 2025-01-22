@@ -94,13 +94,13 @@ const results = computed(() => {
         <td>
           <WordBox
             :text="item.zoteroTerm"
-            :to="item.type === 'field' ? { name: 'field', hash: `heading-${item.zoteroTerm}` } : undefined"
+            :to="item.type === 'field' ? { name: 'field', hash: item.zoteroTerm as string } : undefined"
           />
         </td>
         <td>
           <WordBox
             :text="item.cslTerm"
-            :to="item.type === 'field' ? { name: 'field', hash: `heading-${item.cslTerm}` } : undefined"
+            :to="item.type === 'field' ? { name: 'field', hash: item.cslTerm as string } : undefined"
           />
         </td>
         <td>{{ item.type }}</td>

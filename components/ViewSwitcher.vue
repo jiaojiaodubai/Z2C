@@ -17,10 +17,11 @@ const views = {
 }
 
 const router = useRouter()
+const localePath = useLocalePath()
 
 function selectView(key: string) {
   localStorage.setItem('selectedView', key)
-  router.push(`/${key}`)
+  router.push(localePath(`/${key}`))
 }
 </script>
 
@@ -41,7 +42,7 @@ function selectView(key: string) {
         v-for="(att, key) in views"
         :key="key"
         :title="$t(`view.${key}`)"
-        :active="key === ($route.name as string).substring(1)"
+        :active="key === $getRouteBaseName($route)"
         :value="key"
         @click="selectView(key)"
       >

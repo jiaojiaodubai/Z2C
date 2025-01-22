@@ -41,6 +41,8 @@ export default defineNuxtConfig({
         transformAssetUrls,
       },
     },
+    // https://vitejs.cn/vite5-cn/config/shared-options.html#define
+    define: { __BUILDING_TIME__: JSON.stringify(new Date().toISOString()) },
   },
   i18n: {
     locales: [

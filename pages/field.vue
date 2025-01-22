@@ -76,7 +76,7 @@ const results = computed(() => {
       <td>
         <WordBox
           :text="item.zoteroItemType"
-          :to="{name: 'itemType', hash: `heading-${item.zoteroItemType}`}"
+          :to="{ name: 'itemType', hash: item.zoteroItemType as string }"
         />
       </td>
       <td>

@@ -72,7 +72,7 @@ entries.push(genEntry('name', schema.csl.names, 'creatorTypes'))
             <WordBox
               :text="field"
               :key="field"
-              :to="{ name: 'field', hash: `heading-${field}` }"
+              :to="{ name: 'field', hash: field as string }"
             />
           </div>
         </td>
