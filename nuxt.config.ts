@@ -42,7 +42,7 @@ export default defineNuxtConfig({
       },
     },
     // https://vitejs.cn/vite5-cn/config/shared-options.html#define
-    define: { __BUILDING_TIME__: JSON.stringify(new Date().toISOString()) },
+    define: { __BUILDING_TIME__: JSON.stringify(new Date().toISOString()), __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: 'true' },
   },
   i18n: {
     locales: [

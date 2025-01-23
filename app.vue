@@ -26,7 +26,7 @@ watch(() => route.name, () => {
   const baseRouteName = getRouteBaseName(route)
   enableToc.value = baseRouteName !== '[...redirect]'
   showToc.value = baseRouteName !== '[...redirect]'
-})
+}, { immediate: true })
 </script>
 
 <template>
@@ -52,9 +52,11 @@ watch(() => route.name, () => {
       </NuxtLayout>
     </v-main>
     <AppFooter />
-    <Toc
-      v-if="enableToc"
-      v-model="showToc"
-    />
+    <ClientOnly>
+      <Toc
+        v-if="enableToc"
+        v-model="showToc"
+      />
+    </ClientOnly>
   </v-app>
 </template>

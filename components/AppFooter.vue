@@ -2,7 +2,6 @@
 import data from '@/data/schema.json'
 // @ts-ignore
 const buildTime = ref(__BUILDING_TIME__)
-console.log(buildTime.value)
 </script>
 
 <template>
@@ -13,6 +12,7 @@ console.log(buildTime.value)
   >
     <i18n-t
       keypath="footer"
+      scope="global"
       tag="div"
       class="text-caption text-disabled"
       style="position: absolute; right: 16px;"
