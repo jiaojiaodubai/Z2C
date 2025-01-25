@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import data from '@/data/schema.json'
-// @ts-ignore
+// @ts-expect-error __BUILDING_TIME__ is injected by Vite
 const buildTime = ref(__BUILDING_TIME__)
 </script>
 
@@ -43,4 +43,3 @@ const buildTime = ref(__BUILDING_TIME__)
     &:hover
       color: rgba(25, 118, 210, 1)
 </style>
-

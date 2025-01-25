@@ -6,11 +6,11 @@ export default defineI18nLocale(() => ({
   view: {
     itemType: 'Item Types',
     field: 'Zotero Fields',
-    variable: 'CSL Variables'
+    variable: 'CSL Variables',
   },
   locale: {
     en: 'English',
-    zhHans: 'Chinese (Simplified)'
+    zhHans: 'Chinese (Simplified)',
   },
   appBar: {
     title: '{Zotero} to {CSL} Mappings',
@@ -20,12 +20,12 @@ export default defineI18nLocale(() => ({
       themeSwitcher: 'Switch Theme',
       tocSwitcher: {
         expand: 'Expand Table of Contents',
-        collapse: 'Collapse Table of Contents'
-      }
-    }
+        collapse: 'Collapse Table of Contents',
+      },
+    },
   },
   toc: {
-    title: 'Table of Contents'
+    title: 'Table of Contents',
   },
   header: {
     zoteroItemType: 'Zotero Item Type',
@@ -35,13 +35,13 @@ export default defineI18nLocale(() => ({
     cslVariable: 'CSL Variable',
     cslTerm: 'CSL Term',
     ui: 'UI Label',
-    type: 'Type'
+    type: 'Type',
   },
   footer: 'Built based on {schema} at {time}',
   redrecting: 'Redirecting to {view} ...',
   dialogs: {
-    confirm: "Confirm",
-    cancel: "Cancel",
+    confirm: 'Confirm',
+    cancel: 'Cancel',
     itemType: {
       title: 'Filter Item Types',
       showAllTypes: 'Show All Item Types',
@@ -57,7 +57,7 @@ export default defineI18nLocale(() => ({
     },
     variable: {
       title: 'Filter CSL Variables',
-    }
+    },
   },
   variable: {
     heading: {
@@ -65,12 +65,12 @@ export default defineI18nLocale(() => ({
       number: 'Number Variables',
       date: 'Date Variables',
       name: 'Name Variables',
-    }
+    },
   },
   wordBox: {
     snackBar: {
-      copied: 'Copied to clipboard'
-    }
+      copied: 'Copied to clipboard',
+    },
   },
-  labels: schema.locales['en-US']
+  labels: schema.locales['en-US'],
 }))

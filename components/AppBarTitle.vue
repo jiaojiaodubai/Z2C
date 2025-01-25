@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import RitchTextTitle from './RichTextTitle.vue'
 import { useWindowSize } from '@vueuse/core'
+import RitchTextTitle from './RichTextTitle.vue'
 
 const { width } = useWindowSize()
 

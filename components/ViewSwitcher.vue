@@ -4,16 +4,16 @@ import { mergeProps } from 'vue'
 const views = {
   itemType: {
     icon: 'mdi-alpha-i-box-outline',
-    color: '#9C27B0'
+    color: '#9C27B0',
   },
-  field:{
+  field: {
     icon: 'mdi-alpha-z-box-outline',
-    color: '#E43B45'
+    color: '#E43B45',
   },
   variable: {
     icon: 'mdi-alpha-c-box-outline',
-    color: '#2196F3'
-  }
+    color: '#2196F3',
+  },
 }
 
 const router = useRouter()

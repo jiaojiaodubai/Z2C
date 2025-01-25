@@ -6,11 +6,11 @@ export default defineI18nLocale(() => ({
   view: {
     itemType: '条目类型',
     field: 'Zotero 字段',
-    variable: 'CSL 变量'
+    variable: 'CSL 变量',
   },
   locale: {
     en: '英文',
-    zhHans: '中文（简体）'
+    zhHans: '中文（简体）',
   },
   appBar: {
     title: '{Zotero} 到 {CSL} 的映射',
@@ -20,12 +20,12 @@ export default defineI18nLocale(() => ({
       themeSwitcher: '切换主题',
       tocSwitcher: {
         expand: '展开目录',
-        collapse: '收起目录'
-      }
-    }
+        collapse: '收起目录',
+      },
+    },
   },
   toc: {
-    title: '目录'
+    title: '目录',
   },
   header: {
     zoteroItemType: 'Zotero 条目类型',
@@ -35,13 +35,13 @@ export default defineI18nLocale(() => ({
     cslVariable: 'CSL 变量',
     cslTerm: 'CSL 类型/变量',
     ui: 'UI 标签',
-    type: '类型'
+    type: '类型',
   },
   footer: '依据 {schema} 构建于 {time}',
   redrecting: '正在重定向至{view}视图……',
   dialogs: {
-    confirm: "确认",
-    cancel: "取消",
+    confirm: '确认',
+    cancel: '取消',
     itemType: {
       title: '过滤条目类型',
       showAllTypes: '显示所有条目类型',
@@ -53,11 +53,11 @@ export default defineI18nLocale(() => ({
     field: {
       title: '过滤字段',
       showAllFields: '显示所有字段',
-      hideCommonFields: '隐藏常用字段'
+      hideCommonFields: '隐藏常用字段',
     },
     variable: {
-      title: '过滤 CSL 变量'
-    }
+      title: '过滤 CSL 变量',
+    },
   },
   variable: {
     heading: {
@@ -65,12 +65,12 @@ export default defineI18nLocale(() => ({
       number: '数字变量',
       date: '日期变量',
       name: '姓名变量',
-    }
+    },
   },
   wordBox: {
     snackBar: {
-      copied: '已复制到剪贴板'
-    }
+      copied: '已复制到剪贴板',
+    },
   },
-  labels: schema.locales['zh-CN']
+  labels: schema.locales['zh-CN'],
 }))

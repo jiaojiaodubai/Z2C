@@ -10,7 +10,7 @@ theme.global.name.value = isDarkMode.value ? 'dark' : 'light'
 const themeIcon = computed(() => isDarkMode.value ? 'mdi-weather-night' : 'mdi-white-balance-sunny')
 
 const toggleTheme = () => {
-  isDarkMode.value = !isDarkMode.value;
+  isDarkMode.value = !isDarkMode.value
   theme.global.name.value = isDarkMode.value ? 'dark' : 'light'
 }
 </script>

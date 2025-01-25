@@ -14,7 +14,7 @@ useHead({
     return productCategory
       ? `${productCategory} - ${t('title')}`
       : t('title')
-  }
+  },
 })
 
 const enableToc = ref(false)

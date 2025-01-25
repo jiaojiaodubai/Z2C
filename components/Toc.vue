@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <!-- inspired by https://github.com/vuetifyjs/vuetifypackages/docs/src/components/app/Toc.vue -->
 <script setup lang="ts">
 import { scrollToHash } from '@/composables/window'
@@ -12,10 +13,11 @@ const router = useRouter()
 const activeStack: string[] = []
 const activeItem = ref('')
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
+  entries.forEach((entry) => {
     if (entry.isIntersecting) {
       activeStack.push(entry.target.id)
-    } else if (activeStack.includes(entry.target.id)) {
+    }
+    else if (activeStack.includes(entry.target.id)) {
       activeStack.splice(activeStack.indexOf(entry.target.id), 1)
     }
   })
@@ -59,7 +61,7 @@ watch(activeItem, async (val) => {
   timeout = window.setTimeout(() => {
     const hash = val.substring(8)
     if (router.currentRoute.value.hash !== hash) {
-      router.replace({hash: `#${hash}`})
+      router.replace({ hash: `#${hash}` })
     }
     const activeElm = document.getElementById(`toc-item-${hash}`)
     if (activeElm) {

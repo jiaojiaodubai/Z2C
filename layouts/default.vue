@@ -1,7 +1,6 @@
 <script setup>
 import { onMounted, onUnmounted, ref } from 'vue'
 
-
 const showFab = ref(false)
 const handleScroll = () => {
   showFab.value = window.scrollY > 1000
@@ -9,7 +8,7 @@ const handleScroll = () => {
 function scrollToTop() {
   window.scrollTo({
     top: 0,
-    behavior: 'smooth'
+    behavior: 'smooth',
   })
 }
 

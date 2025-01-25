@@ -3,7 +3,7 @@ import constant from '@/data/constant.json'
 import schema from '@/data/schema.json'
 
 definePageMeta({
-  color: '#2196F3'
+  color: '#2196F3',
 })
 
 const { t } = useI18n()
@@ -11,7 +11,7 @@ const { t } = useI18n()
 const headers = reactive(['cslVariable', 'zoteroField', 'ui'].map(key => ({
   title: computed(() => t(`header.${key}`)),
   key: key,
-  value: key
+  value: key,
 })))
 
 const entries: {
@@ -19,12 +19,12 @@ const entries: {
   rows: VariableRow[]
 }[] = []
 function genEntry<
-  T extends Record<string, string | string[]>
+  T extends Record<string, string | string[]>,
 >(varType: CslVariableType, target: T, labelType = 'fields') {
   return {
     heading: {
       text: computed(() => t(`variable.heading.${varType}`)),
-      value: varType
+      value: varType,
     },
     rows: constant.variable[varType].map((variable) => {
       let zField = target[variable]
@@ -32,7 +32,7 @@ function genEntry<
         return {
           cslVariable: variable,
           zoteroField: '',
-          ui: ''
+          ui: '',
         }
       }
       if (!Array.isArray(zField)) {
@@ -50,9 +50,9 @@ function genEntry<
       return {
         cslVariable: variable,
         zoteroField: zField,
-        ui: zField.map(z => computed(() => t(`labels.${labelType}.${z}`)))
+        ui: zField.map(z => computed(() => t(`labels.${labelType}.${z}`))),
       }
-    })
+    }),
   }
 }
 
@@ -63,23 +63,32 @@ entries.push(genEntry('name', schema.csl.names, 'creatorTypes'))
 </script>
 
 <template>
-  <Cards :entries="entries" :headers="headers">
+  <Cards
+    :entries="entries"
+    :headers="headers"
+  >
     <template #item="{ item }">
       <tr>
         <td>{{ item.cslVariable }}</td>
         <td>
-          <div v-for="field in item.zoteroField" class="word-box-container">
+          <div class="multi-value-cell">
             <WordBox
-              :text="field"
+              v-for="field in item.zoteroField"
               :key="field"
+              :text="field"
               :to="{ name: 'field', hash: field as string }"
             />
           </div>
         </td>
         <td>
-          <div v-for="text in item.ui">
-            <span :key="text">{{ text }}</span>
-          </div> 
+          <div class="multi-value-cell">
+            <div
+              v-for="text in item.ui"
+              :key="text"
+            >
+              {{ text }}
+            </div>
+          </div>
         </td>
       </tr>
     </template>

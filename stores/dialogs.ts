@@ -6,19 +6,19 @@ export const useItemTypeStore = defineStore('itemType', () => {
   const selectedItemTypes = ref(
     schema.itemTypes.map(type => type.itemType).filter((type) => {
       return !constant.itemType.zoteroSpecific.includes(type)
-    })
+    }),
   )
 
   return {
     filterMode,
-    selectedItemTypes
+    selectedItemTypes,
   }
 })
 
 export const useFieldStore = defineStore('field', () => {
   const filterMode = ref('hideCommonFields')
-  
+
   return {
-    filterMode
+    filterMode,
   }
 })

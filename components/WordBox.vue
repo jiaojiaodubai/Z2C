@@ -20,7 +20,6 @@ const copyToClipboard = () => {
       })
   }
 }
-
 </script>
 
 <template>
@@ -37,7 +36,10 @@ const copyToClipboard = () => {
       :to="{ name: to.name, hash: `#${to.hash}` }"
       class="word-box-btn ml-1"
     >
-      <v-icon icon="mdi-information-variant-circle-outline" size="em"/>
+      <v-icon
+        icon="mdi-information-variant-circle-outline"
+        size="em"
+      />
     </nuxt-link-locale>
   </div>
   <v-snackbar

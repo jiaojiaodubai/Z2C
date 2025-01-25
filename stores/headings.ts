@@ -6,6 +6,6 @@ export const useHeadingsStore = defineStore('headings', () => {
 
   return {
     headings,
-    setHeadings
+    setHeadings,
   }
 })

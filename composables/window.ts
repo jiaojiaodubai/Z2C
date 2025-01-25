@@ -9,11 +9,11 @@ const scrollToHash = (hash: string) => {
 
     window.scrollTo({
       top: offsetPosition,
-      behavior: 'smooth'
+      behavior: 'smooth',
     })
   }
 }
 
 export {
-  scrollToHash
+  scrollToHash,
 }

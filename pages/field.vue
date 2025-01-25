@@ -14,7 +14,7 @@ const { t } = useI18n()
 const headers = ['zoteroItemType', 'cslType', 'ui'].map(key => ({
   title: computed(() => t(`header.${key}`)),
   key: key,
-  value: key
+  value: key,
 }))
 
 const fields: Set<string> = new Set()
@@ -32,7 +32,7 @@ const sortedFields = Array.from(fields).sort((a, b) => {
 const entries: {
   heading: CardHeading
   rows: FieldRow[]
-}[]  = []
+}[] = []
 for (const field of sortedFields) {
   const itemTypes = data.itemTypes.filter(type => type.fields.some(obj => obj.field === field)).map(obj => obj.itemType)
   const rows = []
@@ -40,28 +40,28 @@ for (const field of sortedFields) {
     rows.push({
       zoteroItemType: type,
       cslType: Object.keys(data.csl.types).find(key => data.csl.types[key as keyof typeof data.csl.types].includes(type)) || '',
-      ui: computed(() => t(`labels.itemTypes.${type}`))
+      ui: computed(() => t(`labels.itemTypes.${type}`)),
     })
   }
   entries.push({
     heading: {
       text: field,
-      value: field
+      value: field,
     },
-    rows: rows
+    rows: rows,
   })
 }
 
 const store = useFieldStore()
 
 const results = computed(() => {
-  switch(store.filterMode) {
-  case 'hideCommonFields':
-    return entries.filter(entry => {
-      return !constant.field.common.includes(entry.heading.value)
-    })
-  default:
-    return entries
+  switch (store.filterMode) {
+    case 'hideCommonFields':
+      return entries.filter((entry) => {
+        return !constant.field.common.includes(entry.heading.value)
+      })
+    default:
+      return entries
   }
 })
 </script>
@@ -71,21 +71,21 @@ const results = computed(() => {
     :entries="results"
     :headers="headers"
   >
-  <template #item="{ item }">
-    <tr>
-      <td>
-        <WordBox
-          :text="item.zoteroItemType"
-          :to="{ name: 'itemType', hash: item.zoteroItemType as string }"
-        />
-      </td>
-      <td>
-        {{ item.cslType }}
-      </td>
-      <td>
-        {{ item.ui }} 
-      </td>
-    </tr>
-  </template>
+    <template #item="{ item }">
+      <tr>
+        <td>
+          <WordBox
+            :text="item.zoteroItemType"
+            :to="{ name: 'itemType', hash: item.zoteroItemType as string }"
+          />
+        </td>
+        <td>
+          {{ item.cslType }}
+        </td>
+        <td>
+          {{ item.ui }}
+        </td>
+      </tr>
+    </template>
   </Cards>
 </template>

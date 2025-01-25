@@ -7,8 +7,8 @@ interface Props<T> {
   items: T[]
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const { title, headers, items } = defineProps<Props<any>>()
-
 </script>
 
 <template>
@@ -29,7 +29,10 @@ const { title, headers, items } = defineProps<Props<any>>()
         hide-default-footer
       >
         <template #item="{ item }">
-          <slot name="item" :item="item" />
+          <slot
+            name="item"
+            :item="item"
+          />
         </template>
       </v-data-table>
     </v-card-text>

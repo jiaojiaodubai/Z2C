@@ -18,11 +18,11 @@
 </template>
 
 <script setup>
+import { useStorage } from '@vueuse/core'
 import RichTextTitle from '@/components/RichTextTitle.vue'
 import favicon from '@/public/favicon.svg'
 // explicit import
 // https://vueuse.org/core/useStorage/
-import { useStorage } from '@vueuse/core'
 
 definePageMeta({
   layout: 'home',

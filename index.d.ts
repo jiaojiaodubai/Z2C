@@ -9,15 +9,15 @@ type BasicTableHeader = {
 }
 
 type TableRow = {
-  zoteroItemType?: string | string[],
-  zoteroField?: string | string[],
-  zoteroCreatorType?: string | string[],
-  zoteroTerm?: string,
-  cslType?: string,
-  cslVariable?: string,
-  cslTerm?: string,
-  ui?: string | string[] | globalThis.ComputedRef<string> | globalThis.Ref<string>[],
-  type?: TermType,
+  zoteroItemType?: string | string[]
+  zoteroField?: string | string[]
+  zoteroCreatorType?: string | string[]
+  zoteroTerm?: string
+  cslType?: string
+  cslVariable?: string
+  cslTerm?: string
+  ui?: string | string[] | globalThis.ComputedRef<string> | globalThis.Ref<string>[]
+  type?: TermType
 }
 
 type HeaderKey = keyof TableRow
@@ -41,12 +41,12 @@ type FieldRow = {
 }
 
 type VariableRow = {
-  cslVariable: string,
-  zoteroField: string | string[],
+  cslVariable: string
+  zoteroField: string | string[]
   ui: string | globalThis.Ref<string>[]
 }
 
-type StringValObject  = {
+type StringValObject = {
   [key: string]: string
 }
 
