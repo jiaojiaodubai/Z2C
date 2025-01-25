@@ -1,0 +1,30 @@
+name: Sync Zotero Schema
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs daily at midnight
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
+
+    - name: Download schema.json
+      run: curl -o src/data/schema.json https://raw.githubusercontent.com/zotero/zotero-schema/refs/heads/master/schema.json
+
+    - name: Commit and push changes
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git add data/schema.json
+        git diff-index --quiet HEAD || git commit -m 'Update schema.json'
+        git push
