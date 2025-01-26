@@ -30,28 +30,35 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="cards">
-    <EntryCard
-      v-for="entry in entries"
-      :key="entry.heading.value"
-      :title="entry.heading"
-      :headers="headers"
-      :items="entry.rows"
-    >
-      <template #item="{ item }">
-        <slot
-          name="item"
-          :item="item"
-        />
-      </template>
-    </EntryCard>
-  </div>
+  <v-virtual-scroll
+    :items="entries"
+    height="100%"
+  >
+    <template #default="{ item: entry }">
+      <EntryCard
+        :title="entry.heading"
+        :headers="headers"
+        :items="entry.rows"
+      >
+        <template #item="{ item }">
+          <slot
+            name="item"
+            :item="item"
+          />
+        </template>
+      </EntryCard>
+    </template>
+  </v-virtual-scroll>
 </template>
 
 <style scoped>
-.cards {
+:deep(.v-virtual-scroll__container) {
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+:deep(.v-virtual-scroll__item) {
+  padding: 0 2px;
 }
 </style>
