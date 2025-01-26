@@ -19,7 +19,7 @@ jobs:
         node-version: '20'
 
     - name: Download schema.json
-      run: curl -o src/data/schema.json https://raw.githubusercontent.com/zotero/zotero-schema/refs/heads/master/schema.json
+      run: curl -o data/schema.json https://raw.githubusercontent.com/zotero/zotero-schema/refs/heads/master/schema.json
 
     - name: Commit and push changes
       run: |
