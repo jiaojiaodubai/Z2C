@@ -103,8 +103,8 @@ const results = computed(() => {
             :to="item.type === 'field' ? { name: 'field', hash: item.cslTerm as string } : undefined"
           />
         </td>
-        <td>{{ item.type }}</td>
         <td>{{ item.ui }}</td>
+        <td>{{ item.type }}</td>
       </tr>
     </template>
   </cards>
