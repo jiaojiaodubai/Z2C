@@ -1,5 +1,5 @@
 {
-	"version": 32,
+	"version": 33,
 	"itemTypes": [
 		{
 			"itemType": "annotation",
@@ -1931,6 +1931,9 @@
 				{
 					"field": "audioFileType",
 					"baseField": "medium"
+				},
+				{
+					"field": "date"
 				},
 				{
 					"field": "runningTime"
