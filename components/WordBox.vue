@@ -32,7 +32,7 @@ const copyToClipboard = () => {
       {{ text }}
     </span>
     <nuxt-link-locale
-      v-if="to"
+      v-if="to?.name && to?.hash"
       :to="{ name: to.name, hash: `#${to.hash}` }"
       class="word-box-btn ml-1"
     >
