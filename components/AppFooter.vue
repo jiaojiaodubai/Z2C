@@ -20,7 +20,7 @@ const buildTime = ref(__BUILDING_TIME__)
       <template #schema>
         <a
           class="text-decoration-none on-surface"
-          href="https://raw.githubusercontent.com/zotero/zotero-schema/master/schema.json"
+          href="https://api.zotero.org/schema"
           rel="noopener noreferrer"
           target="_blank"
         >

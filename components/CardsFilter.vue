@@ -10,7 +10,10 @@ const baseRouteName = computed(() => {
 })
 
 const currentDialog = computed(() => {
-  const component = `${capitalize(baseRouteName.value)}Dialog`
+  const routeName = baseRouteName.value
+  if (!routeName) return null
+
+  const component = `${capitalize(routeName)}Dialog`
   return defineAsyncComponent(() => import(`./dialogs/${component}.vue`))
 })
 </script>

@@ -93,7 +93,6 @@ watch(activeItem, async (val) => {
         v-for="heading in store.headings"
         :key="heading.value"
         :to=" { hash: `#${heading.value}` }"
-        custom
       >
         <v-list-item
           :id="`toc-item-${heading.value}`"

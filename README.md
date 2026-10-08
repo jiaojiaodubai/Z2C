@@ -72,4 +72,16 @@ yarn preview
 bun run preview
 ```
 
+## Zotero Schema
+
+The bundled schema is refreshed from Zotero's official schema API before production builds and static generation. To update it manually, run:
+
+```bash
+pnpm sync:schema
+```
+
+This provides an on-demand way to refresh the checked-in snapshot.
+
+GitHub Actions also checks for schema changes weekly on Monday at 00:00 UTC. When the schema changes, it commits the updated snapshot to the default branch. If Netlify is connected to this repository with automatic deploys enabled, that commit triggers a site rebuild; unchanged schemas do not trigger a deployment.
+
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
